@@ -51,3 +51,8 @@ function tail(n,previousLast, last){
 
 // challenge implement Pascal’s Triangle
 //formula pascalTriangle(row - 1, col) + pascalTriangle(row - 1, col - 1). 
+
+// Understanding recursion fibo 
+
+
+//Understanding recursion tail fibo 
