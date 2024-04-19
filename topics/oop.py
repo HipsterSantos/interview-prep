@@ -20,6 +20,7 @@ class Circle:
     def __init__(self, radius):
         self.radius = radius
 
+
     def area(self):
         return self.pi * self.radius ** 2
 
@@ -88,7 +89,8 @@ class Rectangle:
         return self._width * self.height
 
     # setting setter on width property
-
+    def something(self):
+        self.area = self.width * self.height #so here i'm showing the usage of @property
     @width.setter
     def width(self, value):
         if value >= 5:
@@ -145,7 +147,8 @@ class Rectangle(Shape):
     def area(self):
         return self.width * self.height
     def perimiter(self):
-        return 2 * (self.width + self.height)
+        return 2 * (self.wid        return 2 * (self.width + self.height)
+th + self.height)
 @dataclass
 class Circle(Shape):
     radius: float
