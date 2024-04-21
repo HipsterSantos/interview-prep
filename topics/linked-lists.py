@@ -13,8 +13,17 @@ def printNodes(head):
     while head is not None: 
         print("value--",current.value)
         current = current.next
-        
-def rec(head):
-    if head is None: return 
-    print(f"current Node = ",head)
-    rec(head.next)
+def sumNode(head):
+    sum = 0
+    while head != None:
+        sum += sum + head.value
+        head = head.next
+    return sum
+def findNode(head,index,value=None):
+    counter = 0
+    if head.value == value : return head
+    while head != None:
+        if counter == index: return head
+        counter += 1
+        head = head.next
+def reverseList(head):
