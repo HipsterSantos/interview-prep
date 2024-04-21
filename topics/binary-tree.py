@@ -1,3 +1,6 @@
+import sys
+
+
 class TreeNode:
     def __init__(self,value,left=None,right=None):
         self.value = value
@@ -87,3 +90,34 @@ def depthFirstSum(root):
         if current_node.left: queue.append(current_node.left)
         if current_node.right: queue.append(current_node.right)
     return totalSum
+
+def depthFirstMinimum(root):
+    if not root: return int(sys.maxsize)
+    return min(root.value, min(depthFirstMinimum(root.left),depthFirstMinimum(root.right)))
+
+one = TreeNode(33)
+two = TreeNode(7)
+three = TreeNode(6)
+four =  TreeNode(344)
+five =  TreeNode(8)
+
+one.left = two
+one.right = three
+two.left = four
+two.right = five
+
+print('minimum  = ',depthFirstMinimum(one))
+
+def depthFirstItMinimum(root):
+    if not root: return 0
+    queue = [root]
+    minimum = float('inf')
+    while len(queue) >0:
+        current_node = queue.pop(0)
+        if current_node.value < minimum:
+            minimum = current_node.value
+        if current_node.left: queue.append(current_node.left)
+        if current_node.right: queue.append(current_node.right)
+    return minimum
+
+print('it-minimum = ',depthFirstItMinimum(one))
