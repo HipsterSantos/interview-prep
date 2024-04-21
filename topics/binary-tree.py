@@ -52,3 +52,22 @@ def breadthFirst(root):
         if current_node.right: queue.append(current_node.right)
     return result
 print('BreadthFirst = ',breadthFirst(a))
+
+def treeInclude(root,e):
+    stack = [root]
+    while len(stack)>0:
+        current_node = stack.pop()
+        if current_node.value == e: return True
+        if current_node.left: stack.append(current_node.left)
+        if current_node.right: stack.append(current_node.right)
+    return False
+
+print('\nincludes- C- ',treeInclude(a,'G'))
+
+
+def recDepthFirstInclude(root,target):
+    if root is None: return False
+    if root.value == target: return True
+    return recDepthFirstInclude(root.left,target) or recDepthFirstInclude(root.right, target)
+
+print('recDepthFirstInclude2 = ',recDepthFirstInclude(a,'G'))
