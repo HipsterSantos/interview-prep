@@ -40,3 +40,15 @@ def recDepthFirst(root):
 print('result = ',recDepthFirst(a))
 
 print('pop--',[3,2,3,4].pop(1))
+
+def breadthFirst(root):
+    if root is None: return []
+    queue = [root]
+    result = []
+    while len(queue)>0:
+        current_node = queue.pop(0)
+        result.append(current_node.value)
+        if current_node.left: queue.append(current_node.left)
+        if current_node.right: queue.append(current_node.right)
+    return result
+print('BreadthFirst = ',breadthFirst(a))
