@@ -71,3 +71,19 @@ def recDepthFirstInclude(root,target):
     return recDepthFirstInclude(root.left,target) or recDepthFirstInclude(root.right, target)
 
 print('recDepthFirstInclude2 = ',recDepthFirstInclude(a,'G'))
+
+def reDepthFirstSum(root):
+    if root is None: return 0
+    return root.value + reDepthFirstSum(root.left) + reDepthFirstSum(root.right)
+
+#iteractively solution
+def depthFirstSum(root):
+    if not root: return 0
+    queue = [root]
+    totalSum = 0
+    while len(queue)>0:
+        current_node = queue.pop(0)
+        totalSum += current_node.value
+        if current_node.left: queue.append(current_node.left)
+        if current_node.right: queue.append(current_node.right)
+    return totalSum
