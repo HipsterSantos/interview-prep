@@ -15,4 +15,4 @@ def decimalToBinary(num):
     binaryDivisionHelper(num)
     return binaryString
 
-print(decimalToBinary(10))
+print(decimalToBinary(2))
