@@ -71,6 +71,7 @@ def zipLists(head1,head2):
     #if head1 is greater than head 2 , loop should use head1 other than it should use head2
     #on the iteraction make this replacement
     """
+    
     current = head
     next = current.next
     toAdd = head2
@@ -78,4 +79,55 @@ def zipLists(head1,head2):
     nextToAdd = toAdd.next
     toAdd.next = next
     toAdd = nextToAdd
+    
     """
+# Node (done) node->value, node->next
+# linkedList
+# linked list insertion  insert(a), insert(a,2)
+#linked list delete  element in specific position delL(b)
+# zip two linked list  zipL(head1,head2)
+# swap positions swap(a,b)
+
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.size = 0
+    def insert(self,node:Node):
+        if self.head is None:
+            self.head = node
+            self.size+=1
+        else:
+            self.head.next = node
+            self.size+=1
+    
+    def isEmpty(self):
+        return self.size == 0
+    
+    def insert(self,node:Node,index:int):
+        if self.head is None:
+            #first node is empty
+            self.head = node
+        else:
+            #it means we already have a node
+            temp = self.head
+            self.head = node
+            self.head.next = temp
+        self.size+=1 #for every insertion operation we're couting
+    def delete(self,item):
+        current_node = self.head
+        counter = 0
+        while current_node != None:
+            if current_node.value == item:
+                if counter == 0:
+                    self.head = current_node.next #if we're remove the first element , we can point th next to this first element
+                else:
+                    next = current_node.next
+                    self.head.next = next
+            counter +=1
+            current_node = current_node.next
+    def zipLists(self,head1,head2):
+        pass
+    @property
+    def totalNodes(self):
+        return self.size

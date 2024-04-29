@@ -40,7 +40,7 @@ Constraints:
 #this code satify these usecases () [] {}, [), {) ([] ()[} 
 #but not this one {[]}, {[]()} ,{[()]}
 
-class Solution: 
+class Solution1:
     def isValid(self,s:str)->bool:
         rules = {
             '(': ')',
@@ -51,3 +51,29 @@ class Solution:
             nextIndex = index+1
             if rules.get(ch) == s[nextIndex]: return True 
             else: return False
+
+class Solution:
+    def isValidParenthes(self,str):
+        pattern_matching = {
+            ")":"(",
+            "}":"{",
+            "]":"["
+        }
+        """we're gonna adding rever adding to the stack'"""
+        stack = []
+        open_pattern = "({["
+        close_pattern =  "])}"
+        """this gonna keep track only of """
+        for char in str:
+            if char in open_pattern:
+                stack.append(char)
+            elif char in close_pattern:
+                if not stack:
+                    return False
+                top_most_open = stack.pop()
+                if top_most_open != pattern_matching[char]:
+                    return False
+        return len(stack) == 0
+
+sol = Solution().isValidParenthes("[(())]")
+print('isValid = ',sol)
